@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 
 class StepViewExample extends StatefulWidget {
   const StepViewExample({Key? key}) : super(key: key);
-  static const String routeName = '/example/step_view_example';
+  static const String routeName = '/examples/step_view_example';
 
   @override
   _StepViewExampleState createState() => _StepViewExampleState();
@@ -94,8 +94,17 @@ class _StepViewExampleState extends State<StepViewExample> {
       builder: (context, value, child) {
         final index = passed.passedCount;
 
-        return ElevatedButton(
-          child: Text(index == (stepList.length - 1) ? "submit" : "next >"),
+        return OutlinedButton(
+          style: OutlinedButton.styleFrom(
+              primary: Colors.black,
+              backgroundColor: Colors.amber,
+              padding: const EdgeInsets.all(10)),
+          child: SizedBox(
+              width: double.infinity,
+              height: 40,
+              child: Center(
+                  child: Text(
+                      index == (stepList.length - 1) ? "submit" : "next >"))),
           onPressed: _onNextBtnTap,
         );
       },

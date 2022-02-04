@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_playboard/app/example/list_weel_scroll.dart';
-import 'package:flutter_playboard/app/example/step_view.dart';
-import 'package:flutter_playboard/app/example/page_view_selected.dart';
+import 'package:flutter_playboard/src/basics/01_animated_container.dart';
+import 'package:flutter_playboard/src/basics/02_page_route_builder.dart';
+import 'package:flutter_playboard/src/basics/03_animation_controller.dart';
+import 'package:flutter_playboard/src/basics/04_tweens.dart';
+import 'package:flutter_playboard/src/examples/custom_sliver_app_bar.dart';
+import 'package:flutter_playboard/src/examples/list_weel_scroll.dart';
+import 'package:flutter_playboard/src/examples/page_view_selected.dart';
+import 'package:flutter_playboard/src/examples/step_view.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -26,16 +31,37 @@ class MyRouts {
   });
 }
 
-final examplesMap = Map.fromEntries(
-    examples.map((MyRouts item) => MapEntry(item.route, item.builder)));
-
-final allRoutes = <String, WidgetBuilder>{
-  ...examplesMap,
-};
+final basics = [
+  MyRouts(
+    name: 'Tweens',
+    route: TweenDemo.routeName,
+    builder: (context) => const TweenDemo(),
+  ),
+  MyRouts(
+    name: 'Animation Controller',
+    route: AnimationControllerDemo.routeName,
+    builder: (context) => const AnimationControllerDemo(),
+  ),
+  MyRouts(
+    name: 'PageRouteBuilder',
+    route: PageRouteBuilderDemo.routeName,
+    builder: (context) => const PageRouteBuilderDemo(),
+  ),
+  MyRouts(
+    name: 'AnimatedContainer',
+    route: AnimatedContainerDemo.routeName,
+    builder: (context) => const AnimatedContainerDemo(),
+  ),
+];
 
 final examples = [
   MyRouts(
-    name: 'Step View  Example',
+    name: 'Sliver App Bar Example',
+    route: CustomSliverAppBarStatus.routeName,
+    builder: (context) => const CustomSliverAppBarStatus(),
+  ),
+  MyRouts(
+    name: 'Step View Example',
     route: StepViewExample.routeName,
     builder: (context) => const StepViewExample(),
   ),
@@ -50,6 +76,17 @@ final examples = [
     builder: (context) => const PageViewSelected(),
   ),
 ];
+
+final basicMaps =
+    Map.fromEntries(basics.map((d) => MapEntry(d.route, d.builder)));
+
+final exampleMaps = Map.fromEntries(
+    examples.map((MyRouts item) => MapEntry(item.route, item.builder)));
+
+final allRoutes = <String, WidgetBuilder>{
+  ...exampleMaps,
+  ...basicMaps,
+};
 
 class HomeView extends StatelessWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -69,6 +106,8 @@ class HomeView extends StatelessWidget {
       ),
       body: ListView(
         children: [
+          const ListTile(title: Text('Basics', style: headerStyle)),
+          ...basics.map((d) => DemoTile(d)),
           const ListTile(title: Text('Examples', style: headerStyle)),
           ...examples.map((d) => DemoTile(d)),
         ],

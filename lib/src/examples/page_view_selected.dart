@@ -5,7 +5,7 @@ import 'package:flutter/physics.dart';
 
 class PageViewSelected extends StatefulWidget {
   const PageViewSelected({Key? key}) : super(key: key);
-  static const String routeName = '/example/page_view_selected_example';
+  static const String routeName = '/examples/page_view_selected_example';
 
   @override
   _PageViewSelectedState createState() => _PageViewSelectedState();

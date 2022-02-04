@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 class ListWheelScrollExample extends StatefulWidget {
-  static const String routeName = '/example/list_wheel_scroll_example';
+  static const String routeName = '/examples/list_wheel_scroll_example';
   const ListWheelScrollExample({Key? key}) : super(key: key);
 
   @override
