@@ -3,6 +3,7 @@ import 'package:flutter_playboard/src/basics/01_animated_container.dart';
 import 'package:flutter_playboard/src/basics/02_page_route_builder.dart';
 import 'package:flutter_playboard/src/basics/03_animation_controller.dart';
 import 'package:flutter_playboard/src/basics/04_tweens.dart';
+import 'package:flutter_playboard/src/examples/bottom_navigation_hide.dart';
 import 'package:flutter_playboard/src/examples/custom_sliver_app_bar.dart';
 import 'package:flutter_playboard/src/examples/list_weel_scroll.dart';
 import 'package:flutter_playboard/src/examples/page_view_selected.dart';
@@ -55,6 +56,11 @@ final basics = [
 ];
 
 final examples = [
+  MyRouts(
+    name: 'BottomNavigationHide',
+    route: BottomNavigationHide.routeName,
+    builder: (context) => const BottomNavigationHide(),
+  ),
   MyRouts(
     name: 'Sliver App Bar Example',
     route: CustomSliverAppBarStatus.routeName,
