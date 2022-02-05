@@ -9,9 +9,11 @@ import 'package:flutter_playboard/src/examples/custom_sliver_app_bar.dart';
 import 'package:flutter_playboard/src/examples/list_weel_scroll.dart';
 import 'package:flutter_playboard/src/examples/page_view_selected.dart';
 import 'package:flutter_playboard/src/examples/step_view.dart';
+import 'package:flutter_playboard/src/examples/webview_example.dart';
 import 'package:get/get.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     GetMaterialApp(
       title: "Application",
@@ -57,6 +59,11 @@ final basics = [
 ];
 
 final examples = [
+  MyRouts(
+    name: 'WebViewExample',
+    route: WebViewExample.routeName,
+    builder: (context) => const WebViewExample(),
+  ),
   MyRouts(
     name: 'AnimatedCardWidget',
     route: AnimatedCardWidget.routeName,

@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
   provider: ^6.0.2
   flutter_sequence_animation: 4.0.0-nullsafety
+  webview_flutter:
+  path_provider:
 
 dev_dependencies: 
   flutter_lints: ^1.0.0
@@ -22,5 +24,8 @@ flutter:
   uses-material-design: true
 
   assets:
+    - assets/sample_audio.ogg
+    - assets/sample_video.mp4
+    - assets/www/index.html
     - assets/images/
 
